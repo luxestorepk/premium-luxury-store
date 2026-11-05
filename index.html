@@ -130,3 +130,226 @@
         .ai-footer button { padding: 12px 18px; background: var(--gold); color: #000; border: none; font-weight: 800; cursor: pointer; }
     </style>
 </head>
+<body>
+
+    <div class="gold-ribbon">Bespoke Atelier • Worldwide Courier Included • Custom Tailoring Available</div>
+
+    <!-- Crystal Clear Header Navigation -->
+    <header>
+        <div class="nav-wrapper">
+            <div class="nav-top-row">
+                <a class="brand-text" href="#store">MAISON DE LUXE</a>
+                <div class="cart-trigger" onclick="toggleCart()">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span style="font-size: 12px; text-transform: uppercase; font-weight: 600;">Bag</span>
+                    <span class="badge" id="cartBadge">0</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#store" class="active">Collections</a></li>
+                    <li><a href="#store">New Arrivals</a></li>
+                    <li><a href="#store">Evening Wear</a></li>
+                    <li><a href="#store">Accessories</a></li>
+                    <li><a href="https://wa.me/923716649231?text=Hello,%20I%20need%20custom%20sizing%20help." target="_blank">Size Guide</a></li>
+                    <li><a href="https://wa.me/923716649231?text=Hello,%20I%20have%20an%20inquiry." target="_blank">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Banner Section -->
+    <section class="hero">
+        <span class="hero-tag">Exclusive Winter Runway '26</span>
+        <h1>HAUTE COUTURE AUTOMATION</h1>
+        <p>Step into an exclusive e-commerce experience designed for global fashion boutiques.</p>
+        <a href="#store" class="btn-gold">Explore Store Catalog</a>
+        
+        <!-- Trust Bar inside Hero -->
+        <div class="trust-bar">
+            <div class="trust-item"><i class="fa-solid fa-plane"></i><span><strong>3-5 Days</strong><br>Express Shipping</span></div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><span><strong>100% Secure</strong><br>Encrypted Checkout</span></div>
+            <div class="trust-item"><i class="fa-solid fa-scissors"></i><span><strong>Bespoke Fit</strong><br>Custom Tailored</span></div>
+            <div class="trust-item"><i class="fa-brands fa-whatsapp"></i><span><strong>24/7 VIP</strong><br>WhatsApp Support</span></div>
+        </div>
+    </section>
+
+    <!-- Main Store Catalog Grid (20+ Products Catalog) -->
+    <section class="store-section" id="store">
+        <div class="section-head">
+            <h2>CURATED BOUTIQUE PIECES</h2>
+            <p>Select garments to build your order cart or request custom sizing</p>
+        </div>
+
+        <div class="product-grid" id="productGrid">
+            <!-- Items will be injected dynamically via script for 20+ rich items -->
+        </div>
+    </section>
+
+    <!-- Cart Drawer Modal -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="drawer-head">
+            <h3 style="font-family: 'Cinzel', serif; font-size: 18px;">Shopping Bag</h3>
+            <i class="fa-solid fa-xmark" style="cursor:pointer; font-size: 20px;" onclick="toggleCart()"></i>
+        </div>
+        <div id="cartContent" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 12px; font-size: 13px;">
+            <p style="color: #666;">Your bag is empty.</p>
+        </div>
+        <div style="border-top: 1px solid var(--border-gold); padding-top: 15px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 15px; font-size: 14px;">
+                <span style="color: #aaa;">Total Amount:</span>
+                <span id="cartTotalSum" style="color: var(--gold-bright);">$0.00</span>
+            </div>
+            <a href="https://wa.me/923716649231?text=Hello!%20I%20want%20to%20complete%20my%20luxury%20order." target="_blank" class="btn-gold" style="display: block; text-align: center; width: 100%;">Checkout via WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- Floating Action Buttons -->
+    <a href="https://wa.me/923716649231" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+    <button class="ai-float" onclick="toggleAIBot()"><i class="fa-solid fa-sparkles"></i> AI Stylist</button>
+
+    <!-- AI Chat Window -->
+    <div class="ai-box" id="aiBox">
+        <div class="ai-header">
+            <span>Maison AI Concierge</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleAIBot()"></i>
+        </div>
+        <div class="ai-body" id="aiBody">
+            <div class="ai-msg msg-bot">Greetings! I am your AI Virtual Concierge. How may I assist you with custom measurements, international delivery, or checkout today?</div>
+        </div>
+        <div class="ai-footer">
+            <input type="text" id="aiInput" placeholder="Ask about sizes, materials..." onkeypress="checkAIKey(event)">
+            <button onclick="sendAIMessage()">Send</button>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts & Dynamic 20+ Product Injector -->
+    <script>
+        const products = [
+            { name: "Imperial Velvet Gown", price: 480, badge: "Runway Edition", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" },
+            { name: "Sovereign Cashmere Trench", price: 690, badge: "Hand-Stitched", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" },
+            { name: "Royal Gold Tailored Suit", price: 520, badge: "Limited Stock", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" },
+            { name: "Midnight Silk Evening Dress", price: 450, badge: "Bestseller", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" },
+            { name: "Verona Diamond Embroidered Cape", price: 850, badge: "Exclusive", img: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=800&q=80" },
+            { name: "Obsidian Pleated Maxi", price: 390, badge: "New Arrival", img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" },
+            { name: "Aurelia Satin Slip Gown", price: 410, badge: "Trending", img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fb1b?auto=format&fit=crop&w=800&q=80" },
+            { name: "Regal Brocade Blazer", price: 560, badge: "Limited", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" },
+            { name: "Chiffon Royal Wrap Dress", price: 340, badge: "Bestseller", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" },
+            { name: "Elysian Feather Trim Dress", price: 720, badge: "Runway", img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" },
+            { name: "Venetian Gold Sequined Gown", price: 890, badge: "Masterpiece", img: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&q=80" },
+            { name: "Parisian Wool Overcoat", price: 650, badge: "Winter Special", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" },
+            { name: "Milanese Tailored Two-Piece", price: 610, badge: "Exclusive", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" },
+            { name: "Florence Organza Cocktail Dress", price: 430, badge: "New", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" },
+            { name: "Monaco Haute Evening Coat", price: 780, badge: "Limited Edition", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80" },
+            { name: "Versailles Gold Thread Dress", price: 920, badge: "Luxury Pick", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" },
+            { name: "Nobile Velvet Corset Gown", price: 540, badge: "Bestseller", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" },
+            { name: "Cannes Silk High-Slit Gown", price: 490, badge: "Red Carpet", img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80" },
+            { name: "Imperial Pearl Embedded Dress", price: 990, badge: "Collector's Item", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" },
+            { name: "Atelier Signature Silk Trench", price: 670, badge: "Trending", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" }
+        ];
+
+        function renderProducts() {
+            const grid = document.getElementById('productGrid');
+            let html = '';
+            products.forEach(p => {
+                html += `
+                    <div class="product-card">
+                        <div class="img-container">
+                            <span class="exclusive-badge">${p.badge}</span>
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="card-body">
+                            <h3>${p.name}</h3>
+                            <div class="price">$${p.price}.00</div>
+                            <div class="size-selector">
+                                <button class="size-btn active">US 4</button>
+                                <button class="size-btn">US 6</button>
+                                <button class="size-btn">US 8</button>
+                                <button class="size-btn">Custom</button>
+                            </div>
+                            <button class="btn-add-cart" onclick="addToCart('${p.name}', ${p.price})">Add To Bag</button>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        document.addEventListener('DOMContentLoaded', renderProducts);
+
+        let shoppingBag = [];
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('active');
+        }
+
+        function addToCart(title, price) {
+            shoppingBag.push({ title, price });
+            refreshCart();
+            toggleCart();
+        }
+
+        function refreshCart() {
+            const container = document.getElementById('cartContent');
+            const badge = document.getElementById('cartBadge');
+            const totalSum = document.getElementById('cartTotalSum');
+
+            badge.innerText = shoppingBag.length;
+            if(shoppingBag.length === 0) {
+                container.innerHTML = '<p style="color: #666;">Your bag is empty.</p>';
+                totalSum.innerText = '$0.00';
+                return;
+            }
+
+            let html = '';
+            let grandTotal = 0;
+            shoppingBag.forEach((item, idx) => {
+                grandTotal += item.price;
+                html += `<div style="display:flex; justify-content:space-between; align-items:center; background:#141620; padding:10px 12px; border-radius:8px; border:1px solid rgba(223,183,108,0.15);">
+                    <div>
+                        <div style="font-weight:600; color:#fff;">${item.name}</div>
+                        <div style="color:var(--gold-bright); font-weight:700;">$${item.price}.00</div>
+                    </div>
+                    <i class="fa-solid fa-trash" style="color:#777; cursor:pointer;" onclick="removeItem(${idx})"></i>
+                </div>`;
+            });
+
+            container.innerHTML = html;
+            totalSum.innerText = `$${grandTotal}.00`;
+        }
+
+        function removeItem(idx) {
+            shoppingBag.splice(idx, 1);
+            refreshCart();
+        }
+
+        function toggleAIBot() {
+            const box = document.getElementById('aiBox');
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function checkAIKey(e) { if(e.key === 'Enter') sendAIMessage(); }
+
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const body = document.getElementById('aiBody');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const uDiv = document.createElement('div');
+            uDiv.className = 'ai-msg msg-user';
+            uDiv.innerText = text;
+            body.appendChild(uDiv);
+            input.value = '';
+
+            setTimeout(() => {
+                const bDiv = document.createElement('div');
+                bDiv.className = 'ai-msg msg-bot';
+                bDiv.innerText = "Our master tailors and concierge team are available directly on WhatsApp to confirm your bespoke measurements and order details!";
+                body.appendChild(bDiv);
+                body.scrollTop = body.scrollHeight;
+            }, 600);
+        }
+    </script>
+</body>
+</html>
