@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAISON DE LUXE | Premium E-Commerce Store</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { 
+            --gold: #dfb76c; 
+            --gold-bright: #f5d77f; 
+            --gold-glow: rgba(223, 183, 108, 0.3); 
+            --dark-bg: #070709; 
+            --card-bg: #12131a; 
+            --text-light: #f1f1f5; 
+            --border-gold: rgba(223, 183, 108, 0.25);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; overflow-x: hidden; background: var(--dark-bg); color: var(--text-light); font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
+        h1, h2, h3, .brand-text { font-family: 'Cinzel', serif; letter-spacing: 2px; }
+
+        /* Announcement Ribbon */
+        .gold-ribbon { background: linear-gradient(90deg, #b8860b, var(--gold-bright), #b8860b); color: #000; text-align: center; padding: 9px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; width: 100%; }
+
+        /* Crystal Clear Header Navigation */
+        header { background: rgba(7, 7, 9, 0.95); border-bottom: 1px solid var(--border-gold); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(15px); width: 100%; }
+        .nav-wrapper { display: flex; flex-direction: column; align-items: center; padding: 15px 5%; max-width: 1500px; margin: auto; width: 100%; gap: 12px; }
+        .nav-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .brand-text { font-size: 24px; font-weight: 900; color: var(--gold); text-decoration: none; text-shadow: 0 0 15px var(--gold-glow); }
+        
+        /* Clear Navigation Links for Mobile & Laptop */
+        nav ul { display: flex; gap: 15px; list-style: none; overflow-x: auto; max-width: 100%; padding-bottom: 4px; white-space: nowrap; }
+        nav ul::-webkit-scrollbar { display: none; }
+        nav ul li a { text-decoration: none; color: var(--text-light); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
+        nav ul li a:hover, nav ul li a.active { color: var(--gold); background: rgba(223, 183, 108, 0.1); }
+
+        .cart-trigger { position: relative; cursor: pointer; font-size: 18px; color: var(--gold); display: flex; align-items: center; gap: 8px; }
+        .badge { background: var(--gold); color: #000; font-size: 11px; font-weight: 800; padding: 2px 7px; border-radius: 50%; vertical-align: top; }
+
+        @media (min-width: 768px) {
+            .nav-wrapper { flex-direction: row; justify-content: space-between; padding: 20px 8%; gap: 0; }
+            .brand-text { font-size: 28px; }
+            nav ul { gap: 25px; }
+            nav ul li a { font-size: 13px; }
+        }
+
+        /* Hero Section */
+        .hero { 
+            width: 100% !important; 
+            min-height: 75vh; 
+            background: linear-gradient(180deg, rgba(7,7,9,0.4) 0%, var(--dark-bg) 100%), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center; 
+            text-align: center; 
+            padding: 40px 20px; 
+            position: relative;
+            border-bottom: 1px solid var(--border-gold);
+        }
+        .hero-tag { border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
+        .hero h1 { font-size: 32px; color: #fff; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .hero p { color: #aaa; font-size: 14px; max-width: 650px; margin-bottom: 25px; line-height: 1.6; }
+
+        @media (min-width: 768px) {
+            .hero h1 { font-size: 50px; }
+            .hero p { font-size: 16px; }
+        }
+
+        /* Buttons */
+        .btn-gold { background: linear-gradient(135deg, var(--gold), #99752b); color: #000; font-weight: 800; padding: 14px 32px; border: none; border-radius: 40px; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; cursor: pointer; transition: 0.4s; text-decoration: none; box-shadow: 0 0 20px var(--gold-glow); display: inline-block; text-align: center; }
+        .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--gold); background: #fff; color: #000; }
+
+        /* Trust Bar */
+        .trust-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; width: 90%; max-width: 1400px; margin: 40px auto 0; padding: 20px; background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 12px; text-align: center; }
+        .trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; color: #ccc; }
+        .trust-item i { font-size: 20px; color: var(--gold); }
+
+        /* Store Catalog Section */
+        .store-section { padding: 60px 5%; max-width: 1500px; margin: auto; width: 100%; }
+        .section-head { text-align: center; margin-bottom: 40px; }
+        .section-head h2 { font-size: 28px; color: var(--gold); margin-bottom: 8px; }
+        .section-head p { color: #888; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
+
+        @media (min-width: 768px) {
+            .store-section { padding: 80px 8%; }
+            .section-head h2 { font-size: 36px; }
+        }
+
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center; width: 100%; }
+        .product-card { background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 16px; overflow: hidden; transition: 0.4s; position: relative; width: 100%; }
+        .product-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(223, 183, 108, 0.15); }
+        .img-container { height: 380px; width: 100%; overflow: hidden; position: relative; }
+        .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; display: block; }
+        .product-card:hover .img-container img { transform: scale(1.06); }
+        .exclusive-badge { position: absolute; top: 12px; left: 12px; background: rgba(7, 7, 9, 0.85); border: 1px solid var(--gold); color: var(--gold); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
+
+        .card-body { padding: 20px; text-align: center; width: 100%; }
+        .card-body h3 { font-size: 18px; color: #fff; margin-bottom: 8px; }
+        .card-body .price { color: var(--gold-bright); font-weight: 700; font-size: 16px; margin-bottom: 15px; }
+        
+        .size-selector { display: flex; justify-content: center; gap: 6px; margin-bottom: 15px; }
+        .size-btn { background: #181a24; border: 1px solid #333; color: #aaa; padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: 0.3s; }
+        .size-btn:hover, .size-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(223, 183, 108, 0.1); }
+
+        .btn-add-cart { width: 100%; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 12px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
+        .btn-add-cart:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px var(--gold-glow); }
+
+        /* Cart Drawer */
+        .cart-drawer { position: fixed; top: 0; right: -420px; width: 100%; max-width: 380px; height: 100%; background: #0c0d12; border-left: 1px solid var(--gold); z-index: 2000; transition: 0.4s ease-in-out; padding: 25px; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,0.9); }
+        .cart-drawer.active { right: 0; }
+        .drawer-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 15px; margin-bottom: 20px; color: var(--gold); }
+
+        /* Floating Widgets */
+        .wa-float { position: fixed; bottom: 25px; left: 25px; background: #25d366; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); }
+        .ai-float { position: fixed; bottom: 25px; right: 25px; background: linear-gradient(135deg, var(--gold), #99752b); color: #000; padding: 14px 24px; border-radius: 40px; font-weight: 800; cursor: pointer; z-index: 1000; border: none; box-shadow: 0 5px 25px var(--gold-glow); text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px; }
+
+        /* AI Concierge Box */
+        .ai-box { display: none; position: fixed; bottom: 90px; right: 25px; width: 310px; background: #101117; border: 1px solid var(--gold); border-radius: 16px; z-index: 2000; box-shadow: 0 20px 40px rgba(0,0,0,0.8); overflow: hidden; }
+        .ai-header { background: linear-gradient(90deg, #070709, #1a1c26); color: var(--gold); padding: 14px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); font-family: 'Cinzel', serif; font-size: 13px; }
+        .ai-body { height: 240px; padding: 14px; overflow-y: auto; font-size: 12px; display: flex; flex-direction: column; gap: 10px; }
+        .ai-msg { padding: 10px 14px; border-radius: 10px; line-height: 1.4; max-width: 85%; }
+        .msg-bot { background: #191b26; color: #ddd; align-self: flex-start; border-top-left-radius: 2px; border: 1px solid rgba(255,255,255,0.05); }
+        .msg-user { background: var(--gold); color: #000; align-self: flex-end; border-top-right-radius: 2px; font-weight: 600; }
+        .ai-footer { display: flex; border-top: 1px solid var(--border-gold); background: #070709; }
+        .ai-footer input { flex: 1; padding: 12px; background: transparent; border: none; color: #fff; font-size: 12px; outline: none; }
+        .ai-footer button { padding: 12px 18px; background: var(--gold); color: #000; border: none; font-weight: 800; cursor: pointer; }
+    </style>
+</head>
