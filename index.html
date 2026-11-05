@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAISON DE LUXE | Premium E-Commerce Store</title>
+    <title>MAISON DE LUXE | Global Luxury Marketplace</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -22,16 +22,13 @@
         html, body { width: 100%; overflow-x: hidden; background: var(--dark-bg); color: var(--text-light); font-family: 'Plus Jakarta Sans', sans-serif; scroll-behavior: smooth; }
         h1, h2, h3, .brand-text { font-family: 'Cinzel', serif; letter-spacing: 2px; }
 
-        /* Announcement Ribbon */
         .gold-ribbon { background: linear-gradient(90deg, #b8860b, var(--gold-bright), #b8860b); color: #000; text-align: center; padding: 9px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; width: 100%; }
 
-        /* Crystal Clear Header Navigation */
         header { background: rgba(7, 7, 9, 0.95); border-bottom: 1px solid var(--border-gold); position: sticky; top: 0; z-index: 100; backdrop-filter: blur(15px); width: 100%; }
         .nav-wrapper { display: flex; flex-direction: column; align-items: center; padding: 15px 5%; max-width: 1500px; margin: auto; width: 100%; gap: 12px; }
         .nav-top-row { display: flex; justify-content: space-between; align-items: center; width: 100%; }
         .brand-text { font-size: 24px; font-weight: 900; color: var(--gold); text-decoration: none; text-shadow: 0 0 15px var(--gold-glow); }
         
-        /* Clear Navigation Links for Mobile & Laptop */
         nav ul { display: flex; gap: 15px; list-style: none; overflow-x: auto; max-width: 100%; padding-bottom: 4px; white-space: nowrap; }
         nav ul::-webkit-scrollbar { display: none; }
         nav ul li a { text-decoration: none; color: var(--text-light); font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; transition: 0.3s; cursor: pointer; padding: 4px 8px; border-radius: 4px; }
@@ -47,78 +44,60 @@
             nav ul li a { font-size: 13px; }
         }
 
-        /* Hero Section */
         .hero { 
             width: 100% !important; 
-            min-height: 75vh; 
-            background: linear-gradient(180deg, rgba(7,7,9,0.4) 0%, var(--dark-bg) 100%), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            padding: 40px 20px; 
-            position: relative;
-            border-bottom: 1px solid var(--border-gold);
+            min-height: 70vh; 
+            background: linear-gradient(180deg, rgba(7,7,9,0.4) 0%, var(--dark-bg) 100%), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat; 
+            display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 20px; position: relative; border-bottom: 1px solid var(--border-gold);
         }
         .hero-tag { border: 1px solid var(--gold); color: var(--gold); padding: 6px 18px; border-radius: 30px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 20px; }
-        .hero h1 { font-size: 32px; color: #fff; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
+        .hero h1 { font-size: 30px; color: #fff; margin-bottom: 15px; text-shadow: 0 0 20px rgba(0,0,0,0.8); }
         .hero p { color: #aaa; font-size: 14px; max-width: 650px; margin-bottom: 25px; line-height: 1.6; }
 
         @media (min-width: 768px) {
-            .hero h1 { font-size: 50px; }
+            .hero h1 { font-size: 46px; }
             .hero p { font-size: 16px; }
         }
 
-        /* Buttons */
         .btn-gold { background: linear-gradient(135deg, var(--gold), #99752b); color: #000; font-weight: 800; padding: 14px 32px; border: none; border-radius: 40px; text-transform: uppercase; font-size: 11px; letter-spacing: 2px; cursor: pointer; transition: 0.4s; text-decoration: none; box-shadow: 0 0 20px var(--gold-glow); display: inline-block; text-align: center; }
         .btn-gold:hover { transform: translateY(-3px); box-shadow: 0 0 30px var(--gold); background: #fff; color: #000; }
 
-        /* Trust Bar */
-        .trust-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; width: 90%; max-width: 1400px; margin: 40px auto 0; padding: 20px; background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 12px; text-align: center; }
-        .trust-item { display: flex; flex-direction: column; align-items: center; gap: 6px; font-size: 11px; color: #ccc; }
-        .trust-item i { font-size: 20px; color: var(--gold); }
-
-        /* Store Catalog Section */
-        .store-section { padding: 60px 5%; max-width: 1500px; margin: auto; width: 100%; }
-        .section-head { text-align: center; margin-bottom: 40px; }
+        .store-section { padding: 50px 5%; max-width: 1500px; margin: auto; width: 100%; }
+        .section-head { text-align: center; margin-bottom: 30px; }
         .section-head h2 { font-size: 28px; color: var(--gold); margin-bottom: 8px; }
-        .section-head p { color: #888; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; }
-
-        @media (min-width: 768px) {
-            .store-section { padding: 80px 8%; }
-            .section-head h2 { font-size: 36px; }
-        }
+        
+        .filter-tabs { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; }
+        .filter-btn { background: #12131a; border: 1px solid var(--border-gold); color: #aaa; padding: 8px 18px; border-radius: 20px; font-size: 12px; font-weight: 600; cursor: pointer; transition: 0.3s; text-transform: uppercase; }
+        .filter-btn:hover, .filter-btn.active { background: var(--gold); color: #000; border-color: var(--gold); }
 
         .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; justify-content: center; width: 100%; }
         .product-card { background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 16px; overflow: hidden; transition: 0.4s; position: relative; width: 100%; }
         .product-card:hover { border-color: var(--gold); transform: translateY(-8px); box-shadow: 0 15px 35px rgba(223, 183, 108, 0.15); }
-        .img-container { height: 380px; width: 100%; overflow: hidden; position: relative; }
+        .img-container { height: 350px; width: 100%; overflow: hidden; position: relative; }
         .img-container img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; display: block; }
         .product-card:hover .img-container img { transform: scale(1.06); }
         .exclusive-badge { position: absolute; top: 12px; left: 12px; background: rgba(7, 7, 9, 0.85); border: 1px solid var(--gold); color: var(--gold); font-size: 10px; font-weight: 700; padding: 4px 10px; border-radius: 20px; text-transform: uppercase; }
 
         .card-body { padding: 20px; text-align: center; width: 100%; }
-        .card-body h3 { font-size: 18px; color: #fff; margin-bottom: 8px; }
-        .card-body .price { color: var(--gold-bright); font-weight: 700; font-size: 16px; margin-bottom: 15px; }
+        .card-body h3 { font-size: 17px; color: #fff; margin-bottom: 6px; }
+        .card-body .price { color: var(--gold-bright); font-weight: 700; font-size: 16px; margin-bottom: 12px; }
         
-        .size-selector { display: flex; justify-content: center; gap: 6px; margin-bottom: 15px; }
-        .size-btn { background: #181a24; border: 1px solid #333; color: #aaa; padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: 0.3s; }
-        .size-btn:hover, .size-btn.active { border-color: var(--gold); color: var(--gold); background: rgba(223, 183, 108, 0.1); }
+        .option-group { margin-bottom: 12px; text-align: left; font-size: 11px; color: #aaa; }
+        .option-group label { display: block; margin-bottom: 4px; color: var(--gold); font-weight: 600; text-transform: uppercase; }
+        .selector-row { display: flex; gap: 6px; flex-wrap: wrap; }
+        .select-pill { background: #181a24; border: 1px solid #333; color: #ccc; padding: 4px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; transition: 0.3s; }
+        .select-pill:hover, .select-pill.active { border-color: var(--gold); color: var(--gold); background: rgba(223, 183, 108, 0.1); }
 
-        .btn-add-cart { width: 100%; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 12px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; }
+        .btn-add-cart { width: 100%; background: transparent; border: 1px solid var(--gold); color: var(--gold); padding: 12px; border-radius: 30px; font-weight: 700; text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; cursor: pointer; transition: 0.3s; margin-top: 10px; }
         .btn-add-cart:hover { background: var(--gold); color: #000; box-shadow: 0 0 15px var(--gold-glow); }
 
-        /* Cart Drawer */
         .cart-drawer { position: fixed; top: 0; right: -420px; width: 100%; max-width: 380px; height: 100%; background: #0c0d12; border-left: 1px solid var(--gold); z-index: 2000; transition: 0.4s ease-in-out; padding: 25px; display: flex; flex-direction: column; box-shadow: -10px 0 40px rgba(0,0,0,0.9); }
         .cart-drawer.active { right: 0; }
         .drawer-head { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); padding-bottom: 15px; margin-bottom: 20px; color: var(--gold); }
 
-        /* Floating Widgets */
         .wa-float { position: fixed; bottom: 25px; left: 25px; background: #25d366; color: #fff; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 26px; z-index: 1000; text-decoration: none; box-shadow: 0 5px 20px rgba(37,211,102,0.4); }
         .ai-float { position: fixed; bottom: 25px; right: 25px; background: linear-gradient(135deg, var(--gold), #99752b); color: #000; padding: 14px 24px; border-radius: 40px; font-weight: 800; cursor: pointer; z-index: 1000; border: none; box-shadow: 0 5px 25px var(--gold-glow); text-transform: uppercase; font-size: 11px; letter-spacing: 1.5px; display: flex; align-items: center; gap: 8px; }
 
-        /* AI Concierge Box */
         .ai-box { display: none; position: fixed; bottom: 90px; right: 25px; width: 310px; background: #101117; border: 1px solid var(--gold); border-radius: 16px; z-index: 2000; box-shadow: 0 20px 40px rgba(0,0,0,0.8); overflow: hidden; }
         .ai-header { background: linear-gradient(90deg, #070709, #1a1c26); color: var(--gold); padding: 14px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); font-family: 'Cinzel', serif; font-size: 13px; }
         .ai-body { height: 240px; padding: 14px; overflow-y: auto; font-size: 12px; display: flex; flex-direction: column; gap: 10px; }
@@ -132,9 +111,9 @@
 </head>
 <body>
 
-    <div class="gold-ribbon">Bespoke Atelier • Worldwide Courier Included • Custom Tailoring Available</div>
+    <div class="gold-ribbon">Global Marketplace • Worldwide Express Shipping • Multi-Category Luxury</div>
 
-    <!-- Crystal Clear Header Navigation -->
+    <!-- Header Navigation -->
     <header>
         <div class="nav-wrapper">
             <div class="nav-top-row">
@@ -147,46 +126,42 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#store" class="active">Collections</a></li>
-                    <li><a href="#store">New Arrivals</a></li>
-                    <li><a href="#store">Evening Wear</a></li>
-                    <li><a href="#store">Accessories</a></li>
-                    <li><a href="https://wa.me/923716649231?text=Hello,%20I%20need%20custom%20sizing%20help." target="_blank">Size Guide</a></li>
-                    <li><a href="https://wa.me/923716649231?text=Hello,%20I%20have%20an%20inquiry." target="_blank">Contact</a></li>
+                    <li><a onclick="filterCategory('All')" class="active">All Items</a></li>
+                    <li><a onclick="filterCategory('Clothes')">Clothes</a></li>
+                    <li><a onclick="filterCategory('Shoes')">Shoes</a></li>
+                    <li><a onclick="filterCategory('Bags')">Bags</a></li>
+                    <li><a onclick="filterCategory('Perfume')">Perfumes</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Banner Section -->
+    <!-- Hero Banner -->
     <section class="hero">
-        <span class="hero-tag">Exclusive Winter Runway '26</span>
-        <h1>HAUTE COUTURE AUTOMATION</h1>
-        <p>Step into an exclusive e-commerce experience designed for global fashion boutiques.</p>
-        <a href="#store" class="btn-gold">Explore Store Catalog</a>
-        
-        <!-- Trust Bar inside Hero -->
-        <div class="trust-bar">
-            <div class="trust-item"><i class="fa-solid fa-plane"></i><span><strong>3-5 Days</strong><br>Express Shipping</span></div>
-            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i><span><strong>100% Secure</strong><br>Encrypted Checkout</span></div>
-            <div class="trust-item"><i class="fa-solid fa-scissors"></i><span><strong>Bespoke Fit</strong><br>Custom Tailored</span></div>
-            <div class="trust-item"><i class="fa-brands fa-whatsapp"></i><span><strong>24/7 VIP</strong><br>WhatsApp Support</span></div>
-        </div>
+        <span class="hero-tag">Flagship Department Store '26</span>
+        <h1>CURATED GLOBAL LUXURY COLLECTIONS</h1>
+        <p>Explore exclusive apparel, designer footwear, haute perfumes, and leather accessories.</p>
+        <a href="#store" class="btn-gold">Explore Marketplace</a>
     </section>
 
-    <!-- Main Store Catalog Grid (20+ Products Catalog) -->
+    <!-- Store Section -->
     <section class="store-section" id="store">
         <div class="section-head">
-            <h2>CURATED BOUTIQUE PIECES</h2>
-            <p>Select garments to build your order cart or request custom sizing</p>
+            <h2>FEATURED LUXURY PRODUCTS</h2>
         </div>
 
-        <div class="product-grid" id="productGrid">
-            <!-- Items will be injected dynamically via script for 20+ rich items -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" onclick="filterCategory('All', this)">All</button>
+            <button class="filter-btn" onclick="filterCategory('Clothes', this)">Clothes</button>
+            <button class="filter-btn" onclick="filterCategory('Shoes', this)">Shoes</button>
+            <button class="filter-btn" onclick="filterCategory('Bags', this)">Bags</button>
+            <button class="filter-btn" onclick="filterCategory('Perfume', this)">Perfumes</button>
         </div>
+
+        <div class="product-grid" id="productGrid"></div>
     </section>
 
-    <!-- Cart Drawer Modal -->
+    <!-- Cart Drawer -->
     <div class="cart-drawer" id="cartDrawer">
         <div class="drawer-head">
             <h3 style="font-family: 'Cinzel', serif; font-size: 18px;">Shopping Bag</h3>
@@ -200,58 +175,58 @@
                 <span style="color: #aaa;">Total Amount:</span>
                 <span id="cartTotalSum" style="color: var(--gold-bright);">$0.00</span>
             </div>
-            <a href="https://wa.me/923716649231?text=Hello!%20I%20want%20to%20complete%20my%20luxury%20order." target="_blank" class="btn-gold" style="display: block; text-align: center; width: 100%;">Checkout via WhatsApp</a>
+            <a href="https://wa.me/923716649231?text=Hello!%20I%20want%20to%20complete%20my%20marketplace%20order." target="_blank" class="btn-gold" style="display: block; text-align: center; width: 100%;">Checkout via WhatsApp</a>
         </div>
     </div>
 
-    <!-- Floating Action Buttons -->
+    <!-- Floating Buttons -->
     <a href="https://wa.me/923716649231" class="wa-float" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-    <button class="ai-float" onclick="toggleAIBot()"><i class="fa-solid fa-sparkles"></i> AI Stylist</button>
+    <button class="ai-float" onclick="toggleAIBot()"><i class="fa-solid fa-sparkles"></i> AI Concierge</button>
 
     <!-- AI Chat Window -->
     <div class="ai-box" id="aiBox">
         <div class="ai-header">
-            <span>Maison AI Concierge</span>
+            <span>Maison AI Assistant</span>
             <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleAIBot()"></i>
         </div>
         <div class="ai-body" id="aiBody">
-            <div class="ai-msg msg-bot">Greetings! I am your AI Virtual Concierge. How may I assist you with custom measurements, international delivery, or checkout today?</div>
+            <div class="ai-msg msg-bot">Welcome! Ask me about shoe sizes, perfume notes, bag colors, or direct ordering.</div>
         </div>
         <div class="ai-footer">
-            <input type="text" id="aiInput" placeholder="Ask about sizes, materials..." onkeypress="checkAIKey(event)">
+            <input type="text" id="aiInput" placeholder="Ask about size, color..." onkeypress="checkAIKey(event)">
             <button onclick="sendAIMessage()">Send</button>
         </div>
     </div>
 
-    <!-- Interactive Scripts & Dynamic 20+ Product Injector -->
+    <!-- Script -->
     <script>
         const products = [
-            { name: "Imperial Velvet Gown", price: 480, badge: "Runway Edition", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80" },
-            { name: "Sovereign Cashmere Trench", price: 690, badge: "Hand-Stitched", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80" },
-            { name: "Royal Gold Tailored Suit", price: 520, badge: "Limited Stock", img: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=80" },
-            { name: "Midnight Silk Evening Dress", price: 450, badge: "Bestseller", img: "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=800&q=80" },
-            { name: "Verona Diamond Embroidered Cape", price: 850, badge: "Exclusive", img: "https://images.unsplash.com/photo-1554412933-514a83d2f3c8?auto=format&fit=crop&w=800&q=80" },
-            { name: "Obsidian Pleated Maxi", price: 390, badge: "New Arrival", img: "https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=800&q=80" },
-            { name: "Aurelia Satin Slip Gown", price: 410, badge: "Trending", img: "https://images.unsplash.com/photo-1502716119720-b23a93e5fb1b?auto=format&fit=crop&w=800&q=80" },
-            { name: "Regal Brocade Blazer", price: 560, badge: "Limited", img: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" },
-            { name: "Chiffon Royal Wrap Dress", price: 340, badge: "Bestseller", img: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80" },
-            { name: "Elysian Feather Trim Dress", price: 720, badge: "Runway", img: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=800&q=80" },
-            { name: "Venetian Gold Sequined Gown", price: 890, badge: "Masterpiece", img: "https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?auto=format&fit=crop&w=800&q=80" },
-            { name: "Parisian Wool Overcoat", price: 650, badge: "Winter Special", img: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=80" },
-            { name: "Milanese Tailored Two-Piece", price: 610, badge: "Exclusive", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80" },
-            { name: "Florence Organza Cocktail Dress", price: 430, badge: "New", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=800&q=80" },
-            { name: "Monaco Haute Evening Coat", price: 780, badge: "Limited Edition", img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&w=800&q=80" },
-            { name: "Versailles Gold Thread Dress", price: 920, badge: "Luxury Pick", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=800&q=80" },
-            { name: "Nobile Velvet Corset Gown", price: 540, badge: "Bestseller", img: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=800&q=80" },
-            { name: "Cannes Silk High-Slit Gown", price: 490, badge: "Red Carpet", img: "https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?auto=format&fit=crop&w=800&q=80" },
-            { name: "Imperial Pearl Embedded Dress", price: 990, badge: "Collector's Item", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80" },
-            { name: "Atelier Signature Silk Trench", price: 670, badge: "Trending", img: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=80" }
+            { id: 1, name: "Imperial Velvet Gown", cat: "Clothes", price: 480, badge: "Clothes", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80", sizes: ["US 4", "US 6", "US 8"], colors: ["Black", "Emerald", "Gold"] },
+            { id: 2, name: "Royal Stiletto Heels", cat: "Shoes", price: 320, badge: "Shoes", img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80", sizes: ["EU 37", "EU 38", "EU 39"], colors: ["Gold", "Nude", "Black"] },
+            { id: 3, name: "Onyx Leather Tote Bag", cat: "Bags", price: 540, badge: "Bags", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80", sizes: ["Standard"], colors: ["Black", "Brown", "Cream"] },
+            { id: 4, name: "Golden Amber Perfume", cat: "Perfume", price: 210, badge: "Perfume", img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80", sizes: ["50ml", "100ml"], colors: ["Amber"] },
+            { id: 5, name: "Sovereign Cashmere Trench", cat: "Clothes", price: 690, badge: "Clothes", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80", sizes: ["Small", "Medium", "Large"], colors: ["Camel", "Black"] },
+            { id: 6, name: "Velvet Evening Oxford Shoes", cat: "Shoes", price: 380, badge: "Shoes", img: "https://images.unsplash.com/photo-1533867617858-e7d97e079842?auto=format&fit=crop&w=800&q=80", sizes: ["EU 40", "EU 41", "EU 42"], colors: ["Black", "Navy"] },
+            { id: 7, name: "Crocodile Embossed Handbag", cat: "Bags", price: 750, badge: "Bags", img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80", sizes: ["Medium"], colors: ["Burgundy", "Black"] },
+            { id: 8, name: "Royal Rose Extrait de Parfum", cat: "Perfume", price: 280, badge: "Perfume", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80", sizes: ["100ml"], colors: ["Rose Gold"] }
         ];
 
-        function renderProducts() {
+        let selectedOptions = {};
+
+        function renderProducts(filter = 'All') {
             const grid = document.getElementById('productGrid');
             let html = '';
-            products.forEach(p => {
+            
+            const filtered = filter === 'All' ? products : products.filter(p => p.cat === filter);
+
+            filtered.forEach(p => {
+                if (!selectedOptions[p.id]) {
+                    selectedOptions[p.id] = { size: p.sizes[0], color: p.colors[0] };
+                }
+
+                let sizeHtml = p.sizes.map(s => `<button class="select-pill ${selectedOptions[p.id].size === s ? 'active' : ''}" onclick="selectOpt(${p.id}, 'size', '${s}')">${s}</button>`).join('');
+                let colorHtml = p.colors.map(c => `<button class="select-pill ${selectedOptions[p.id].color === c ? 'active' : ''}" onclick="selectOpt(${p.id}, 'color', '${c}')">${c}</button>`).join('');
+
                 html += `
                     <div class="product-card">
                         <div class="img-container">
@@ -261,13 +236,18 @@
                         <div class="card-body">
                             <h3>${p.name}</h3>
                             <div class="price">$${p.price}.00</div>
-                            <div class="size-selector">
-                                <button class="size-btn active">US 4</button>
-                                <button class="size-btn">US 6</button>
-                                <button class="size-btn">US 8</button>
-                                <button class="size-btn">Custom</button>
+                            
+                            <div class="option-group">
+                                <label>Size:</label>
+                                <div class="selector-row" id="sizes-${p.id}">${sizeHtml}</div>
                             </div>
-                            <button class="btn-add-cart" onclick="addToCart('${p.name}', ${p.price})">Add To Bag</button>
+                            
+                            <div class="option-group">
+                                <label>Color:</label>
+                                <div class="selector-row" id="colors-${p.id}">${colorHtml}</div>
+                            </div>
+
+                            <button class="btn-add-cart" onclick="addToCart(${p.id})">Add To Bag</button>
                         </div>
                     </div>
                 `;
@@ -275,7 +255,20 @@
             grid.innerHTML = html;
         }
 
-        document.addEventListener('DOMContentLoaded', renderProducts);
+        function selectOpt(id, type, val) {
+            selectedOptions[id][type] = val;
+            renderProducts(document.querySelector('.filter-btn.active')?.innerText || 'All');
+        }
+
+        function filterCategory(cat, btn) {
+            if(btn) {
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            }
+            renderProducts(cat);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => renderProducts('All'));
 
         let shoppingBag = [];
 
@@ -283,8 +276,10 @@
             document.getElementById('cartDrawer').classList.toggle('active');
         }
 
-        function addToCart(title, price) {
-            shoppingBag.push({ title, price });
+        function addToCart(id) {
+            const p = products.find(item => item.id === id);
+            const opts = selectedOptions[id];
+            shoppingBag.push({ name: p.name, price: p.price, size: opts.size, color: opts.color });
             refreshCart();
             toggleCart();
         }
@@ -307,8 +302,9 @@
                 grandTotal += item.price;
                 html += `<div style="display:flex; justify-content:space-between; align-items:center; background:#141620; padding:10px 12px; border-radius:8px; border:1px solid rgba(223,183,108,0.15);">
                     <div>
-                        <div style="font-weight:600; color:#fff;">${item.name}</div>
-                        <div style="color:var(--gold-bright); font-weight:700;">$${item.price}.00</div>
+                        <div style="font-weight:600; color:#fff; font-size:12px;">${item.name}</div>
+                        <div style="color:#aaa; font-size:10px;">Size: ${item.size} | Color: ${item.color}</div>
+                        <div style="color:var(--gold-bright); font-weight:700; font-size:12px;">$${item.price}.00</div>
                     </div>
                     <i class="fa-solid fa-trash" style="color:#777; cursor:pointer;" onclick="removeItem(${idx})"></i>
                 </div>`;
@@ -345,7 +341,7 @@
             setTimeout(() => {
                 const bDiv = document.createElement('div');
                 bDiv.className = 'ai-msg msg-bot';
-                bDiv.innerText = "Our master tailors and concierge team are available directly on WhatsApp to confirm your bespoke measurements and order details!";
+                bDiv.innerText = "Our luxury concierge can confirm your exact shoe size, perfume notes, and custom color choices instantly via WhatsApp!";
                 body.appendChild(bDiv);
                 body.scrollTop = body.scrollHeight;
             }, 600);
