@@ -122,11 +122,9 @@
         .pay-card { flex: 1; background: #070709; border: 1px solid #333; border-radius: 6px; padding: 6px; text-align: center; font-size: 10px; color: #ccc; cursor: pointer; transition: 0.3s; }
         .pay-card.active { border-color: var(--gold); color: var(--gold); background: rgba(223, 183, 108, 0.1); }
 
-        /* Floating Concierge & AI Buttons */
         .contact-float { position: fixed; bottom: 20px; left: 20px; background: linear-gradient(135deg, var(--gold), #99752b); color: #000; padding: 9px 16px; border-radius: 30px; font-weight: 800; font-size: 10px; text-transform: uppercase; z-index: 1000; text-decoration: none; box-shadow: 0 5px 20px rgba(223,183,108,0.4); display: flex; align-items: center; gap: 6px; }
         .ai-float { position: fixed; bottom: 20px; right: 20px; background: #181a24; color: var(--gold); border: 1px solid var(--gold); padding: 9px 16px; border-radius: 30px; font-weight: 800; cursor: pointer; z-index: 1000; text-transform: uppercase; font-size: 10px; display: flex; align-items: center; gap: 6px; box-shadow: 0 5px 20px rgba(0,0,0,0.8); }
 
-        /* AI Chat Box */
         .ai-box { display: none; position: fixed; bottom: 70px; right: 20px; width: 290px; background: #101117; border: 1px solid var(--gold); border-radius: 14px; z-index: 2000; box-shadow: 0 20px 40px rgba(0,0,0,0.8); overflow: hidden; }
         .ai-header { background: linear-gradient(90deg, #070709, #1a1c26); color: var(--gold); padding: 10px 12px; font-weight: 800; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-gold); font-family: 'Cinzel', serif; font-size: 11px; }
         .ai-body { height: 200px; padding: 10px; overflow-y: auto; font-size: 11px; display: flex; flex-direction: column; gap: 8px; }
@@ -138,3 +136,472 @@
         .ai-footer button { padding: 8px 14px; background: var(--gold); color: #000; border: none; font-weight: 800; cursor: pointer; font-size: 10px; }
     </style>
 </head>
+<body>
+
+    <div class="gold-ribbon">Global Marketplace • Worldwide Express Shipping • Direct Order Dispatch</div>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-wrapper">
+            <div class="nav-top-row">
+                <a class="brand-text" onclick="showPage('home')">MAISON DE LUXE</a>
+                <div class="search-container">
+                    <input type="text" id="searchInput" placeholder="Search catalog..." onkeyup="filterSearch()">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <div class="cart-trigger" onclick="toggleCart()">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <span style="font-size: 10px; text-transform: uppercase; font-weight: 600;">Bag</span>
+                    <span class="badge" id="cartBadge">0</span>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+                    <li><a id="nav-shop" onclick="showPage('shop')">Collections</a></li>
+                    <li><a id="nav-about" onclick="showPage('about')">About Us</a></li>
+                    <li><a id="nav-contact" onclick="showPage('contact')">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- PAGE 1: HOME VIEW -->
+    <div id="page-home" class="page-view active-page">
+        <section class="hero">
+            <span class="hero-tag">Flagship Luxury Store '26</span>
+            <h1>HAUTE COUTURE & LUXURY MARKETPLACE</h1>
+            <p>Select color, size, and quantity options to build your bespoke checkout bag.</p>
+            <button class="btn-gold" onclick="showPage('shop')">Explore Collections</button>
+        </section>
+
+        <div class="trust-bar">
+            <div class="trust-item"><i class="fa-solid fa-truck-fast"></i> Worldwide Express Delivery</div>
+            <div class="trust-item"><i class="fa-solid fa-shield-halved"></i> 100% Authentic Products</div>
+            <div class="trust-item"><i class="fa-solid fa-rotate-left"></i> 14-Day Easy Returns</div>
+        </div>
+    </div>
+
+    <!-- PAGE 2: COLLECTIONS / PRODUCT PAGE -->
+    <div id="page-shop" class="page-view">
+        <section class="store-section">
+            <div class="section-head">
+                <h2>CURATED CATALOG (10 EXCLUSIVE ITEMS)</h2>
+            </div>
+            <div class="product-grid" id="productGrid"></div>
+        </section>
+    </div>
+
+    <!-- PAGE 3: ABOUT US VIEW -->
+    <div id="page-about" class="page-view">
+        <div style="max-width: 750px; margin: 40px auto; padding: 30px; background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 14px; text-align: center;">
+            <h2 style="color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 15px; font-size: 22px;">ABOUT MAISON DE LUXE</h2>
+            <p style="color: #ccc; line-height: 1.7; font-size: 13px; margin-bottom: 12px;">Maison de Luxe is an elite international marketplace bringing together haute couture, handmade leather bags, designer footwear, and rare perfumes.</p>
+            <p style="color: #aaa; font-size: 12px;">We ship globally with express tracking and direct concierge support.</p>
+        </div>
+    </div>
+
+    <!-- PAGE 4: CONTACT US VIEW -->
+    <div id="page-contact" class="page-view">
+        <div style="max-width: 550px; margin: 40px auto; padding: 30px; background: var(--card-bg); border: 1px solid var(--border-gold); border-radius: 14px; text-align: center;">
+            <h2 style="color: var(--gold); font-family: 'Cinzel', serif; margin-bottom: 12px; font-size: 22px;">GLOBAL CONCIERGE</h2>
+            <p style="color: #ccc; font-size: 12px; margin-bottom: 20px;">Contact our 24/7 client desk for custom inquiries and global shipping.</p>
+            <a href="https://wa.me/923716649231?text=Hello,%20I%20have%20an%20inquiry." class="btn-gold" style="display: block; width: 220px; margin: auto;">Contact via WhatsApp</a>
+        </div>
+    </div>
+
+    <!-- CART DRAWER PAGE -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="drawer-head">
+            <h3 style="font-family: 'Cinzel', serif; font-size: 16px;">Shopping Bag</h3>
+            <i class="fa-solid fa-xmark" style="cursor:pointer; font-size: 18px;" onclick="toggleCart()"></i>
+        </div>
+        <div id="cartContent" style="flex: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 10px; font-size: 11px;">
+            <p style="color: #666;">Your bag is empty.</p>
+        </div>
+        <div style="border-top: 1px solid var(--border-gold); padding-top: 12px;">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; margin-bottom: 12px; font-size: 13px;">
+                <span style="color: #aaa;">Subtotal Amount:</span>
+                <span id="cartTotalSum" style="color: var(--gold-bright);">$0.00</span>
+            </div>
+            <button class="btn-gold" style="width: 100%;" onclick="openCheckout()">CHECKOUT</button>
+        </div>
+    </div>
+
+    <!-- CHECKOUT FORM MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="modal-content">
+            <div class="modal-head">
+                <h3 style="font-size: 14px;">CHECKOUT & ORDER DISPATCH</h3>
+                <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="closeCheckout()"></i>
+            </div>
+            <form onsubmit="handleOrderSubmit(event)">
+                <div class="form-group">
+                    <label>1. Full Name *</label>
+                    <input type="text" id="custName" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label>2. Email Address *</label>
+                    <input type="email" id="custEmail" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>3. Phone / WhatsApp Number *</label>
+                    <input type="tel" id="custPhone" placeholder="+1 234 567 8900" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>4. Country *</label>
+                        <input type="text" id="custCountry" placeholder="United States" required>
+                    </div>
+                    <div class="form-group">
+                        <label>5. City *</label>
+                        <input type="text" id="custCity" placeholder="New York" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>6. Full Address / Location *</label>
+                    <input type="text" id="custAddress" placeholder="123 Luxury Ave, Suite 400" required>
+                </div>
+                <div class="form-group">
+                    <label>7. Postal Code / Zip Code *</label>
+                    <input type="text" id="custZip" placeholder="10001" required>
+                </div>
+                <div class="form-group">
+                    <label>8. Note (Optional)</label>
+                    <textarea id="custNote" rows="2" placeholder='e.g., "Gift pack kar dena"'></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>9. Select Payment Method *</label>
+                    <div class="payment-methods">
+                        <div class="pay-card active" onclick="setPayment('Credit/Debit Card', this)"><i class="fa-solid fa-credit-card"></i> Card</div>
+                        <div class="pay-card" onclick="setPayment('Apple Pay', this)"><i class="fa-brands fa-apple"></i> Apple Pay</div>
+                        <div class="pay-card" onclick="setPayment('WhatsApp Direct', this)"><i class="fa-brands fa-whatsapp"></i> WA Order</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-gold" style="width: 100%; margin-top: 10px;">Place Order Now</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Floating Buttons -->
+    <a href="https://wa.me/923716649231?text=Hello,%20I%20have%20an%20order%20inquiry." class="contact-float"><i class="fa-brands fa-whatsapp"></i> Contact Now</a>
+    <button class="ai-float" onclick="toggleAIBot()"><i class="fa-solid fa-sparkles"></i> AI Concierge</button>
+
+    <!-- AI Chat Window -->
+    <div class="ai-box" id="aiBox">
+        <div class="ai-header">
+            <span>Maison AI Assistant</span>
+            <i class="fa-solid fa-xmark" style="cursor:pointer" onclick="toggleAIBot()"></i>
+        </div>
+        <div class="ai-body" id="aiBody">
+            <div class="ai-msg msg-bot">Welcome to Maison de Luxe! Ask me about size measurements, perfume notes, or delivery times.</div>
+        </div>
+        <div class="ai-footer">
+            <input type="text" id="aiInput" placeholder="Ask about size..." onkeypress="checkAIKey(event)">
+            <button onclick="sendAIMessage()">Send</button>
+        </div>
+    </div>
+        <script>
+        const colorHexMap = {
+            'Black': '#000000',
+            'White': '#ffffff',
+            'Gold': '#dfb76c',
+            'Blue': '#1e3a8a',
+            'Camel': '#c19a6b',
+            'Navy': '#0a192f',
+            'Burgundy': '#800020',
+            'Amber': '#ffbf00',
+            'Emerald': '#50c878',
+            'Rose Gold': '#b76e79'
+        };
+
+        const sizeDetailsMap = {
+            'S': 'Small (Chest: 36-38 in)',
+            'M': 'Medium (Chest: 39-41 in)',
+            'L': 'Large (Chest: 42-44 in)',
+            'XL': 'Extra Large (Chest: 45-47 in)',
+            'EU 37': 'EU 37 (US Women 6.5 / 23.5 cm)',
+            'EU 38': 'EU 38 (US Women 7.5 / 24.0 cm)',
+            'EU 39': 'EU 39 (US Women 8.5 / 25.0 cm)',
+            'EU 40': 'EU 40 (US Men 7.5 / 25.5 cm)',
+            'EU 41': 'EU 41 (US Men 8.5 / 26.5 cm)',
+            'EU 42': 'EU 42 (US Men 9.5 / 27.0 cm)',
+            '50ml': '50ml (1.7 fl oz Bottle)',
+            '100ml': '100ml (3.4 fl oz Bottle)',
+            'Standard': 'Standard One-Size Dimensions'
+        };
+
+        const products = [
+            { id: 1, name: "Imperial Velvet Gown", cat: "Clothes", price: 480, badge: "Couture", rating: "★★★★★ (42)", img: "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=800&q=80", colors: ["Black", "Emerald", "Gold"], sizes: ["S", "M", "L", "XL"] },
+            { id: 2, name: "Royal Stiletto Heels", cat: "Shoes", price: 320, badge: "Footwear", rating: "★★★★★ (38)", img: "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=800&q=80", colors: ["Gold", "Black", "Rose Gold"], sizes: ["EU 37", "EU 38", "EU 39"] },
+            { id: 3, name: "Onyx Leather Tote Bag", cat: "Bags", price: 540, badge: "Leather", rating: "★★★★★ (54)", img: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=800&q=80", colors: ["Black", "Burgundy", "Camel"], sizes: ["Standard"] },
+            { id: 4, name: "Golden Amber Perfume", cat: "Perfume", price: 210, badge: "Parfum", rating: "★★★★★ (61)", img: "https://images.unsplash.com/photo-1523293182086-7651a899d37f?auto=format&fit=crop&w=800&q=80", colors: ["Amber", "Gold"], sizes: ["50ml", "100ml"] },
+            { id: 5, name: "Sovereign Cashmere Coat", cat: "Clothes", price: 690, badge: "Cashmere", rating: "★★★★★ (29)", img: "https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=800&q=80", colors: ["Camel", "Black", "Navy"], sizes: ["S", "M", "L", "XL"] },
+            { id: 6, name: "Velvet Oxford Shoes", cat: "Shoes", price: 380, badge: "Footwear", rating: "★★★★★ (45)", img: "https://images.unsplash.com/photo-1533867617858-e7d97e079842?auto=format&fit=crop&w=800&q=80", colors: ["Black", "Navy"], sizes: ["EU 40", "EU 41", "EU 42"] },
+            { id: 7, name: "Crocodile Embossed Clutch", cat: "Bags", price: 750, badge: "Exotic", rating: "★★★★★ (33)", img: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&w=800&q=80", colors: ["Burgundy", "Black"], sizes: ["Standard"] },
+            { id: 8, name: "Royal Rose Extrait Parfum", cat: "Perfume", price: 280, badge: "Parfum", rating: "★★★★★ (72)", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=800&q=80", colors: ["Rose Gold", "Gold"], sizes: ["50ml", "100ml"] },
+            { id: 9, name: "Monarch Silk Evening Suit", cat: "Clothes", price: 850, badge: "Tailored", rating: "★★★★★ (21)", img: "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=800&q=80", colors: ["Black", "Navy"], sizes: ["S", "M", "L", "XL"] },
+            { id: 10, name: "Diamond Quilted Shoulder Bag", cat: "Bags", price: 620, badge: "Quilted", rating: "★★★★★ (50)", img: "https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=800&q=80", colors: ["Black", "White", "Gold"], sizes: ["Standard"] }
+        ];
+
+        let state = {};
+        let selectedPayMethod = "Credit/Debit Card";
+
+        function initStore() {
+            products.forEach(p => {
+                state[p.id] = { color: null, size: null, qty: 1 };
+            });
+            renderProducts(products);
+        }
+
+        function renderProducts(items) {
+            const grid = document.getElementById('productGrid');
+            let html = '';
+            
+            items.forEach(p => {
+                const pState = state[p.id];
+                
+                let colorHtml = p.colors.map(c => `
+                    <div class="color-btn ${pState.color === c ? 'active' : ''}" 
+                         style="background-color: ${colorHexMap[c] || '#444'};" 
+                         title="${c}" 
+                         onclick="selectColor(${p.id}, '${c}')"></div>
+                `).join('');
+
+                let sizeHtml = p.sizes.map(s => `
+                    <div class="size-box ${pState.size === s ? 'active' : ''}" 
+                         onclick="selectSize(${p.id}, '${s}')">${s}</div>
+                `).join('');
+
+                const sizeDetail = pState.size ? sizeDetailsMap[pState.size] || pState.size : '';
+
+                html += `
+                    <div class="product-card">
+                        <div class="img-container">
+                            <span class="exclusive-badge">${p.badge}</span>
+                            <img src="${p.img}" alt="${p.name}">
+                        </div>
+                        <div class="card-body">
+                            <h3>${p.name}</h3>
+                            <div class="rating-box">${p.rating}</div>
+                            <div class="price">$${p.price}.00</div>
+                            
+                            <div class="option-group">
+                                <label>Color:</label>
+                                <div class="color-row">${colorHtml}</div>
+                            </div>
+                            
+                            <div class="option-group">
+                                <label>Size:</label>
+                                <div class="size-row">${sizeHtml}</div>
+                                <div class="size-detail-text" id="size-det-${p.id}" style="${pState.size ? 'display:block' : 'display:none'}">Selected: ${sizeDetail}</div>
+                            </div>
+
+                            <div class="option-group">
+                                <label>Quantity:</label>
+                                <div class="qty-control">
+                                    <button class="qty-btn" onclick="updateQty(${p.id}, -1)">-</button>
+                                    <span class="qty-val">${pState.qty}</span>
+                                    <button class="qty-btn" onclick="updateQty(${p.id}, 1)">+</button>
+                                </div>
+                            </div>
+
+                            <div class="validation-error" id="err-${p.id}">Please Select Color & Size</div>
+
+                            <button type="button" class="btn-add-cart" onclick="addToCart(${p.id})">Add To Bag</button>
+                        </div>
+                    </div>
+                `;
+            });
+            grid.innerHTML = html;
+        }
+
+        function selectColor(id, val) {
+            state[id].color = val;
+            document.getElementById(`err-${id}`).style.display = 'none';
+            renderProducts(products);
+        }
+
+        function selectSize(id, val) {
+            state[id].size = val;
+            document.getElementById(`err-${id}`).style.display = 'none';
+            renderProducts(products);
+        }
+
+        function updateQty(id, delta) {
+            if (state[id].qty + delta >= 1) {
+                state[id].qty += delta;
+                renderProducts(products);
+            }
+        }
+
+        let shoppingBag = [];
+
+        function addToCart(id) {
+            const pState = state[id];
+            if (!pState.color || !pState.size) {
+                document.getElementById(`err-${id}`).style.display = 'block';
+                return;
+            }
+
+            const product = products.find(p => p.id === id);
+            shoppingBag.push({
+                name: product.name,
+                price: product.price,
+                color: pState.color,
+                size: pState.size,
+                qty: pState.qty
+            });
+
+            refreshCart();
+            toggleCart();
+        }
+
+        function refreshCart() {
+            const container = document.getElementById('cartContent');
+            const badge = document.getElementById('cartBadge');
+            const totalSum = document.getElementById('cartTotalSum');
+
+            badge.innerText = shoppingBag.length;
+            if (shoppingBag.length === 0) {
+                container.innerHTML = '<p style="color: #666;">Your bag is empty.</p>';
+                totalSum.innerText = '$0.00';
+                return;
+            }
+
+            let html = '';
+            let grandTotal = 0;
+            shoppingBag.forEach((item, idx) => {
+                const totalItemPrice = item.price * item.qty;
+                grandTotal += totalItemPrice;
+                html += `
+                    <div style="display:flex; justify-content:space-between; align-items:center; background:#141620; padding:10px 12px; border-radius:8px; border:1px solid rgba(223,183,108,0.15);">
+                        <div>
+                            <div style="font-weight:700; color:#fff; font-size:12px;">${item.name}</div>
+                            <div style="color:#aaa; font-size:10px; margin-top:2px;">Color: ${item.color} - Size: ${item.size} - Qty: ${item.qty}</div>
+                            <div style="color:var(--gold-bright); font-weight:700; font-size:11px; margin-top:3px;">$${totalItemPrice}.00</div>
+                        </div>
+                        <i class="fa-solid fa-trash" style="color:#777; cursor:pointer;" onclick="removeItem(${idx})"></i>
+                    </div>
+                `;
+            });
+
+            container.innerHTML = html;
+            totalSum.innerText = `$${grandTotal}.00`;
+        }
+
+        function removeItem(idx) {
+            shoppingBag.splice(idx, 1);
+            refreshCart();
+        }
+
+        function toggleCart() {
+            document.getElementById('cartDrawer').classList.toggle('active');
+        }
+
+        function openCheckout() {
+            if (shoppingBag.length === 0) {
+                alert("Your shopping bag is empty!");
+                return;
+            }
+            document.getElementById('checkoutModal').style.display = 'flex';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function setPayment(method, elem) {
+            selectedPayMethod = method;
+            document.querySelectorAll('.pay-card').forEach(c => c.classList.remove('active'));
+            elem.classList.add('active');
+        }
+
+        function filterSearch() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.cat.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
+        function handleOrderSubmit(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('custName').value;
+            const email = document.getElementById('custEmail').value;
+            const phone = document.getElementById('custPhone').value;
+            const country = document.getElementById('custCountry').value;
+            const city = document.getElementById('custCity').value;
+            const address = document.getElementById('custAddress').value;
+            const zip = document.getElementById('custZip').value;
+            const note = document.getElementById('custNote').value;
+
+            let orderItemsMsg = "";
+            let grandTotal = 0;
+
+            shoppingBag.forEach((item, i) => {
+                const totalItemPrice = item.price * item.qty;
+                grandTotal += totalItemPrice;
+                orderItemsMsg += `%0A${i+1}. ${item.name} - Color: ${item.color} - Size: ${item.size} - Qty: ${item.qty} - $${totalItemPrice}`;
+            });
+
+            const ownerWhatsAppNumber = "923716649231";
+            
+            const formattedMessage = `*NEW LUXURY ORDER RECEIVED!*%0A` +
+                `--------------------------------%0A` +
+                `*Customer Details:*%0A` +
+                `• Name: ${name}%0A` +
+                `• Email: ${email}%0A` +
+                `• Phone: ${phone}%0A` +
+                `• Location: ${address}, ${city}, ${country} (${zip})%0A` +
+                `• Note: ${note || 'N/A'}%0A%0A` +
+                `*Ordered Products:* ${orderItemsMsg}%0A%0A` +
+                `*Total Amount:* $${grandTotal}.00%0A` +
+                `*Payment Method:* ${selectedPayMethod}`;
+
+            window.location.href = `https://wa.me/${ownerWhatsAppNumber}?text=${formattedMessage}`;
+        }
+
+        function showPage(pageId) {
+            document.querySelectorAll('.page-view').forEach(p => p.classList.remove('active-page'));
+            document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+            
+            document.getElementById('page-' + pageId).classList.add('active-page');
+            const navElem = document.getElementById('nav-' + pageId);
+            if(navElem) navElem.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleAIBot() {
+            const box = document.getElementById('aiBox');
+            box.style.display = (box.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function checkAIKey(e) { if(e.key === 'Enter') sendAIMessage(); }
+
+        function sendAIMessage() {
+            const input = document.getElementById('aiInput');
+            const body = document.getElementById('aiBody');
+            const text = input.value.trim();
+            if(!text) return;
+
+            const uDiv = document.createElement('div');
+            uDiv.className = 'ai-msg msg-user';
+            uDiv.innerText = text;
+            body.appendChild(uDiv);
+            input.value = '';
+
+            setTimeout(() => {
+                const bDiv = document.createElement('div');
+                bDiv.className = 'ai-msg msg-bot';
+                bDiv.innerText = "Our luxury concierge is available 24/7 to help you with exact sizing numbers, custom orders, and express shipping!";
+                body.appendChild(bDiv);
+                body.scrollTop = body.scrollHeight;
+            }, 500);
+        }
+
+        document.addEventListener('DOMContentLoaded', initStore);
+    </script>
+</body>
+</html>
